@@ -21,7 +21,15 @@ def count_blueprints():
     print(f"""
     Total blueprints: {loops-1}
     """)
-
+def Walkthrough():
+    for subdir, dirs, files in os.walk(rootdir):
+        print(" ")
+        print(subdir)
+        for file in files:
+            file_path = os.path.join(subdir, file)
+            modification_time = os.path.getmtime(file_path)
+            readable_time = time.ctime(modification_time)
+            print(os.path.join(file, "Last modification time: ", readable_time))
 
 def get_latest_mod_time(rootdir):
     latest_time = 0
@@ -45,4 +53,5 @@ def print_sorted():
         print(f'{folder}: {readable_time}')
 
 print_sorted()
+Walkthrough()
 count_blueprints()
