@@ -2,6 +2,7 @@ import os
 import time
 from datetime import datetime
 import pathlib
+import shutil
 
 
 print("""
@@ -52,6 +53,18 @@ def print_sorted():
         readable_time = datetime.fromtimestamp(latest_time).strftime('%Y-%m-%d %H:%M:%S') if latest_time else 'No files'
         print(f'{folder}: {readable_time}')
 
-print_sorted()
+def mk_dir():
+    directory = "0000Blueprints_work"
+    parent_dir = rootdir
+    path = os.path.join(parent_dir, directory)
+    isExist = os.path.exists(path)
+    print(isExist)
+    try:
+        os.mkdir(path)
+    except:
+        isExist == True
+
+mk_dir()
 Walkthrough()
+print_sorted()
 count_blueprints()
