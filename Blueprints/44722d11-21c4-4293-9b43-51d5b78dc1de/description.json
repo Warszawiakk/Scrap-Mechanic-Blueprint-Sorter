@@ -1,8 +1,0 @@
-{
-   "description" : "System przeciwrakietowy\n\n!!! Działa tylko na rakiety z inteligentnej wyrzutni rakiet z cannons pack !!!\n(Rakieta musi mieć ustawiony cel by system zadziałał)",
-   "fileId" : 2828169786,
-   "localId" : "44722d11-21c4-4293-9b43-51d5b78dc1de",
-   "name" : "Plaga system przeciwrakietowy",
-   "type" : "Blueprint",
-   "version" : 0
-}

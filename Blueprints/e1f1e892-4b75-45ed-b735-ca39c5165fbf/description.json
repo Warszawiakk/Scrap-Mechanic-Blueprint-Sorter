@@ -1,7 +1,0 @@
-{
-   "description" : "czołg k8 jest zbudowany na bazie czołgu k2. k8 wprowadza do starej serii czołgów nowinki techniczne takie jak prędkościomierz oraz konwertery WSAD. ",
-   "localId" : "e1f1e892-4b75-45ed-b735-ca39c5165fbf",
-   "name" : "k8",
-   "type" : "Blueprint",
-   "version" : 0
-}

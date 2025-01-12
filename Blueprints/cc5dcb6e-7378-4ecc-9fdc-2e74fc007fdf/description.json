@@ -1,8 +1,0 @@
-{
-   "description" : "Kołowy niszczyciel czołgów z sterowaniem na kamerę. Jest zdolny do szybkiego przemieszczania się, przez co może szybko zająć taktyczne pozycje. Posiada działo o sporej mocy oraz uzbrojenie pomocnicze/przeciwlotnicze w postaci dwóch wyrzutni rakiet zamontowanych na wierzy.\nNa wierzy przed widokiem operatora zamontowana jest szybka pozwalająca na lepszą widoczność otoczenia. W dziale jest zamontowany wskaźnik laserowy który można aktywować i dezaktywować.\n(Najlepiej strzela się z pierwszej osoby)\n\nTyp konstrukcji: Półotwarta\nNapęd: Podwójny silnik spalinowy lvl.5\nPosiada prędkościomierz.\n\nPrzeznaczony dla Plagi i innych zainteresowanych\n\nInstrukcja obsługi:\nlewy przycisk myszy = strzał z uzbrojenia głównego (armata)\nprawy przycisk myszy = strzał z uzbrojenia dodatkowego (wyrzutnie rakiet)\n1 = wskaźnik laserowy\n2 = włączanie sterowania na kamerę\n3 = podpórki\n\n!!! === Zapoznaj się z listą modów i sprawdź czy je posiadasz === !!!\n\nPotrzebne mody:\n-cannon's pack\n-the modpack continuation\n-new legend mod\n-MJM mod\n-Interactive Parts Mod by Lord Pain\n-The Modpack Polygons\n-The Modpack Polygons Cardboard\n-[FR13][BLUE]255 Block's",
-   "fileId" : 2822270461,
-   "localId" : "cc5dcb6e-7378-4ecc-9fdc-2e74fc007fdf",
-   "name" : "Plaga Niszczyciel czołgów \"Minotaur\"",
-   "type" : "Blueprint",
-   "version" : 0
-}
