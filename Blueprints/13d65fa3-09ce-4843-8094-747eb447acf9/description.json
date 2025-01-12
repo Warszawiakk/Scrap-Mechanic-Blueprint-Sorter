@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "13d65fa3-09ce-4843-8094-747eb447acf9",
+   "name" : "heli",
+   "type" : "Blueprint",
+   "version" : 0
+}

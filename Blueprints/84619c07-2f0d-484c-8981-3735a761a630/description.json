@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "84619c07-2f0d-484c-8981-3735a761a630",
+   "name" : "camera controlled missle",
+   "type" : "Blueprint",
+   "version" : 0
+}

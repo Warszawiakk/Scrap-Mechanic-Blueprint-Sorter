@@ -1,0 +1,8 @@
+{
+   "description" : "Bunkier dla plagi, mam nadzieję że się spodoba (robiłem go 3 dni).\nNa 3 piętrze jest safe room z którego można wystrzelić środki zakłucające przeciwko rakietom typu 10.4 pod przyciskami 1,2,3,4,5,6.\nNa szczycie bunkra znajduje się system obrony przeciwrakietowej (chroni przeciwko inteligentnymi rakietami z cannons pack).\nNa 3 piętrze znajduje się przycisk alarmu.\n\nProjekt stworzony przez: architektus7",
+   "fileId" : 2842046294,
+   "localId" : "9932d1c7-ea0e-487e-9df8-da9c1eb4e5cf",
+   "name" : "Bunkier dla Plagi",
+   "type" : "Blueprint",
+   "version" : 0
+}

@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "c675743a-9b01-4a28-8617-732b4d840b26",
+   "name" : "radar wizualny",
+   "type" : "Blueprint",
+   "version" : 0
+}

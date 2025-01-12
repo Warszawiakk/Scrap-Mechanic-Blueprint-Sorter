@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "245b3961-678c-4d2e-adf4-f2891eeb2166",
+   "name" : "test target",
+   "type" : "Blueprint",
+   "version" : 0
+}

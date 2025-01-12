@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "7326162b-6dd8-4e37-b74d-7ca144854fd6",
+   "name" : "pick-up",
+   "type" : "Blueprint",
+   "version" : 0
+}

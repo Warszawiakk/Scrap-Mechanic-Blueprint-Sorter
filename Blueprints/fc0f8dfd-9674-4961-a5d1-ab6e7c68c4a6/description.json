@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "fc0f8dfd-9674-4961-a5d1-ab6e7c68c4a6",
+   "name" : "rakieta testowa z bramką logiczną",
+   "type" : "Blueprint",
+   "version" : 0
+}

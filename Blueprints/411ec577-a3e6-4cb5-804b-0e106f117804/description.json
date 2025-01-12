@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "411ec577-a3e6-4cb5-804b-0e106f117804",
+   "name" : "Stacja kontroli pojazdów sterowanych",
+   "type" : "Blueprint",
+   "version" : 0
+}

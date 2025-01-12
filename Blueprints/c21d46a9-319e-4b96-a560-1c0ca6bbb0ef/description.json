@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "c21d46a9-319e-4b96-a560-1c0ca6bbb0ef",
+   "name" : "Nuke deployer",
+   "type" : "Blueprint",
+   "version" : 0
+}

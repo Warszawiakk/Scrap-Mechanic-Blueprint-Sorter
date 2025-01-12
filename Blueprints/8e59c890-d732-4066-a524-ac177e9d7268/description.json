@@ -1,0 +1,7 @@
+{
+   "description" : "#{STEAM_WORKSHOP_NO_DESCRIPTION}",
+   "localId" : "8e59c890-d732-4066-a524-ac177e9d7268",
+   "name" : "Better nuke deployer",
+   "type" : "Blueprint",
+   "version" : 0
+}
