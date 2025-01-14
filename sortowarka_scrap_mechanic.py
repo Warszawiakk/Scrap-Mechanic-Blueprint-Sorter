@@ -36,12 +36,12 @@ def Walkthrough():
     for subdir, dirs, files in os.walk(rootdir):
         mt = get_latest_mod_time(subdir)
         readable_time = time.ctime(mt[1])
-        print(f"{mt[0]} - last modification time: {readable_time}")
+        # print(f"{mt[0]} - last modification time: {readable_time}")
         timestamps[subdir] = mt[1]
 
     for k, v in timestamps.items():
-        # print(f"{k}: {v}")
         os.utime(k, (v, v))
+    print("Done")
 
 
 def get_latest_mod_time(rootdir) -> tuple[str, int]:
@@ -59,6 +59,5 @@ def get_latest_mod_time(rootdir) -> tuple[str, int]:
                 pass
     return (result_path, latest_time)
 
-
-count_blueprints()
 Walkthrough()
+count_blueprints()
