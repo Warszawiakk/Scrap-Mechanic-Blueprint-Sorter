@@ -1,47 +1,36 @@
-import os
-import time
-from time import sleep
 from datetime import datetime
+from time import sleep
 import pathlib
 import shutil
-
-
-print(
-    """
-Please enter your full blueprint folder location: 
-"""
-)
+import time
+import os
 
 timestamps: dict[str, float] = {}
 
-raw_rootdir = input(">>> ")
+raw_rootdir = input("Please enter your full blueprint folder location >>> ")
 unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
-print(unchanged_rootdir)
+print(f"Unchanged root dir: {unchanged_rootdir}")
 rootdir = str(unchanged_rootdir.as_posix())
-print(rootdir)
+print(f"Root dir: {rootdir}")
 
 
 def count_blueprints():
     loops = 0
     for subdir in os.walk(rootdir):
         loops = loops + 1
-    print(
-        f"""
-    Total blueprints: {loops-1}
-    """
-    )
+    print(f"Total blueprints: {loops-1}")
 
 
-def Walkthrough():
+def walkthrough():
     for subdir, dirs, files in os.walk(rootdir):
         mt = get_latest_mod_time(subdir)
         readable_time = time.ctime(mt[1])
-        # print(f"{mt[0]} - last modification time: {readable_time}")
+        print(f"{mt[0]} - last modification time: {readable_time}")
         timestamps[subdir] = mt[1]
 
     for k, v in timestamps.items():
         os.utime(k, (v, v))
-    print("Done")
+    print("\nDone!")
 
 
 def get_latest_mod_time(rootdir) -> tuple[str, int]:
@@ -59,5 +48,5 @@ def get_latest_mod_time(rootdir) -> tuple[str, int]:
                 pass
     return (result_path, latest_time)
 
-Walkthrough()
+walkthrough()
 count_blueprints()
