@@ -1,5 +1,7 @@
-Version Alpha 0.1 script, that helps you track all of your lift blueprints in scrap mechanic.
-Id does not have any graphic interface. It basicly sets blueprint modification date to it's earliest modificated file.
+Version Alpha 1.0 script, that helps you track all of your lift blueprints in scrap mechanic.
+It changes your blueprint folder modification date as well as your folder name.
+
+!!! Warning, this version is very buggy and unstable (Althoe works flawlessly on first try) !!!
 
 GUIDE:
 
@@ -15,7 +17,7 @@ GUIDE:
 
 6. use command: python sortowarka_scrap_mechanic.py
 
-7. While in program enter your Blueprints directory location (C:\Users\[Username]\AppData\Roaming\Axolot Games\Scrap Mechanic\User\User\_[number\Blueprints])
+7. While in program enter your Blueprints directory location (C:\Users\[Username]\AppData\Roaming\Axolot Games\Scrap Mechanic\User\User\_[number]\Blueprints)
 
 8. Delete the program from your User directory
 
