@@ -1,3 +1,4 @@
+import json
 import os
 import time
 from time import sleep
@@ -32,16 +33,53 @@ def count_blueprints():
     )
 
 
-def Walkthrough():
+def Sort_Blueprints():
+    print("Root: ", rootdir)
     for subdir, dirs, files in os.walk(rootdir):
+        if subdir == rootdir:
+            continue
         mt = get_latest_mod_time(subdir)
-        readable_time = time.ctime(mt[1])
-        # print(f"{mt[0]} - last modification time: {readable_time}")
         timestamps[subdir] = mt[1]
+        print("Sub: ", subdir)
 
     for k, v in timestamps.items():
         os.utime(k, (v, v))
-    print("Done")
+    print("Blueprints sorted")
+
+
+def Rename_Folders():
+    nonamecount = 0
+    for subdir, dirs, files in os.walk(rootdir):
+        if subdir == rootdir:
+            continue
+        try:
+            subdir = subdir.replace("\\", "/")
+            with open(subdir + "/description.json", encoding="utf-8") as open_json:
+                data = json.load(open_json)
+
+            if data["name"] == "":
+                nonamecount += 1
+                data["name"] = "BezNazwy_" + str(nonamecount)
+            newName = (
+                subdir.rsplit("/", 1)[0]
+                + "/"
+                + data["name"]
+                .replace("\\", "/")
+                .replace("/", "_")
+                .replace('"', "_")
+                .replace("?", "__znak_zapytania__")
+                .replace(".", "_dot_")
+                .replace("<", "__less_than__")
+                .replace(">", "__greater_than__")
+                .replace(":", "-")
+                .replace("|", "l")
+                .replace("*", "x")
+            )
+
+            os.rename(subdir, newName)
+        except Exception as e:
+            print("\n\nFolder rename failed at: ", subdir, "\nexception:", e)
+    print("Folders renamed. Done.")
 
 
 def get_latest_mod_time(rootdir) -> tuple[str, int]:
@@ -59,5 +97,10 @@ def get_latest_mod_time(rootdir) -> tuple[str, int]:
                 pass
     return (result_path, latest_time)
 
-Walkthrough()
+
+Sort_Blueprints()
+Rename_Folders()
 count_blueprints()
+
+# readable_time = time.ctime(mt[1])
+# print(f"{mt[0]} - last modification time: {readable_time}")
