@@ -11,7 +11,7 @@ GUIDE:
 
 3. enter terminal
 
-4. use command: cd C:\Users\[Username]\AppData\Roaming\Axolot Games\Scrap Mechanic\User\User\_[number] directory
+4. use command: cd [your sorter program location]
 
 5. use command: python sortowarka_scrap_mechanic.py
 
