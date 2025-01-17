@@ -6,6 +6,12 @@ from datetime import datetime
 import pathlib
 import shutil
 
+from tkinter import *
+
+window = Tk()
+window.title("Scrap Mechanic Blueprint Sorter")
+window.geometry('900x250')
+window.tk.call('tk', 'scaling', 2.0)
 
 print(
     """
@@ -16,6 +22,9 @@ Please enter your full blueprint folder location:
 timestamps: dict[str, float] = {}
 
 raw_rootdir = input(">>> ")
+if raw_rootdir == "exit":
+    print("program stopped")
+    exit()
 unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
 print(unchanged_rootdir)
 rootdir = str(unchanged_rootdir.as_posix())
@@ -63,7 +72,7 @@ def Rename_Folders():
             newName = (
                 subdir.rsplit("/", 1)[0]
                 + "/"
-                + data["name"]
+                + data["localId"]
                 .replace("\\", "/")
                 .replace("/", "_")
                 .replace('"', "_")
