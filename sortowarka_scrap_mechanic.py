@@ -9,18 +9,23 @@ import shutil
 from tkinter import *
 from tkinter import ttk
 
-# UI
+# UI ================================================================================================================================ \/
 
 window = Tk()
 window.title("Scrap Mechanic Blueprint Sorter")
 window.geometry("900x250")
 window.tk.call("tk", "scaling", 2.0)
 
+entry_string = ""
+rootdir = ""
+
 
 def display_text():
     global entry
-    string = entry.get()
-    labelka.configure(text=string)
+    global entry_string
+    entry_string = entry.get()
+    labelka.configure(text=entry_string)
+    print(f"Wprowadzono: {entry_string}")
 
 
 labelka = Label(window, text="", font=("Courier 5 bold"))
@@ -33,26 +38,33 @@ entry = Entry(window, width=40)
 entry.focus_set()
 entry.pack()
 
-ttk.Button(window, text="Okay", width=20, command=display_text).pack(pady=20)
 
-window.mainloop()
+def executeOrder66():
+    display_text()
+
+    raw_rootdir = entry_string
+    unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
+    print(unchanged_rootdir)
+    global rootdir
+    rootdir = str(unchanged_rootdir.as_posix())
+    print(rootdir)
+
+    Sort_Blueprints()
+    Rename_Folders()
+    count_blueprints()
+
+    end_tekst = Label(window, text="Done!")
+    end_tekst.pack()
 
 
-# UI
+ttk.Button(window, text="Okay", width=20, command=executeOrder66).pack(pady=20)
 
-print(
-    """
-Please enter your full blueprint folder location: 
-"""
-)
+
+# UI ================================================================================================================================ /\
 
 timestamps: dict[str, float] = {}
 
-raw_rootdir = input(">>> ")
-unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
-print(unchanged_rootdir)
-rootdir = str(unchanged_rootdir.as_posix())
-print(rootdir)
+end_of_sequence = False
 
 
 def count_blueprints():
@@ -64,6 +76,8 @@ def count_blueprints():
     Total blueprints: {round((loops-1)/2)}
     """
     )
+    blueprint_count = Label(window, text=f"Total blueprints: {round((loops - 1) / 2)}")
+    blueprint_count.pack()
 
 
 def Sort_Blueprints():
@@ -133,6 +147,4 @@ def get_latest_mod_time(rootdir) -> tuple[str, int]:
     return (result_path, latest_time)
 
 
-Sort_Blueprints()
-Rename_Folders()
-count_blueprints()
+window.mainloop()
