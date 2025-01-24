@@ -40,25 +40,31 @@ entry.pack()
 
 
 def executeOrder66():
-    display_text()
+    window.config(cursor="wait")
+    window.update()
 
-    raw_rootdir = entry_string
-    unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
-    print(unchanged_rootdir)
-    global rootdir
-    rootdir = str(unchanged_rootdir.as_posix())
-    print(rootdir)
+    try:
+        display_text()
 
-    Sort_Blueprints()
-    Rename_Folders()
-    count_blueprints()
+        raw_rootdir = entry_string
+        unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
+        print(unchanged_rootdir)
+        global rootdir
+        rootdir = str(unchanged_rootdir.as_posix())
+        print(rootdir)
 
-    end_tekst = Label(window, text="Done!")
-    end_tekst.pack()
+        Sort_Blueprints()
+        Rename_Folders()
+        count_blueprints()
+
+        end_tekst = Label(window, text="Done!")
+        end_tekst.pack()
+    finally:
+        window.config(cursor="")
+        window.update()
 
 
 ttk.Button(window, text="Okay", width=20, command=executeOrder66).pack(pady=20)
-
 
 # UI ================================================================================================================================ /\
 
@@ -68,15 +74,8 @@ end_of_sequence = False
 
 
 def count_blueprints():
-    loops = 0
-    for subdir in os.walk(rootdir):
-        loops = loops + 1
-    print(
-        f"""
-    Total blueprints: {round((loops-1)/2)}
-    """
-    )
-    blueprint_count = Label(window, text=f"Total blueprints: {round((loops - 1) / 2)}")
+    folder_count = sum(1 for entry in os.scandir(rootdir) if entry.is_dir())
+    blueprint_count = Label(window, text=f"Total blueprints: {folder_count}")
     blueprint_count.pack()
 
 
