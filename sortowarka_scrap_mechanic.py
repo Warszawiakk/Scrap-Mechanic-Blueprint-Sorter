@@ -7,11 +7,38 @@ import pathlib
 import shutil
 
 from tkinter import *
+from tkinter import ttk
+
+# UI
 
 window = Tk()
 window.title("Scrap Mechanic Blueprint Sorter")
-window.geometry('900x250')
-window.tk.call('tk', 'scaling', 2.0)
+window.geometry("900x250")
+window.tk.call("tk", "scaling", 2.0)
+
+
+def display_text():
+    global entry
+    string = entry.get()
+    labelka.configure(text=string)
+
+
+labelka = Label(window, text="", font=("Courier 5 bold"))
+labelka.pack()
+
+tekst = Label(window, text="please enter full path to Blueprints folder: ")
+tekst.pack()
+
+entry = Entry(window, width=40)
+entry.focus_set()
+entry.pack()
+
+ttk.Button(window, text="Okay", width=20, command=display_text).pack(pady=20)
+
+window.mainloop()
+
+
+# UI
 
 print(
     """
@@ -22,9 +49,6 @@ Please enter your full blueprint folder location:
 timestamps: dict[str, float] = {}
 
 raw_rootdir = input(">>> ")
-if raw_rootdir == "exit":
-    print("program stopped")
-    exit()
 unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
 print(unchanged_rootdir)
 rootdir = str(unchanged_rootdir.as_posix())
@@ -37,7 +61,7 @@ def count_blueprints():
         loops = loops + 1
     print(
         f"""
-    Total blueprints: {loops-1}
+    Total blueprints: {round((loops-1)/2)}
     """
     )
 
@@ -49,7 +73,8 @@ def Sort_Blueprints():
             continue
         mt = get_latest_mod_time(subdir)
         timestamps[subdir] = mt[1]
-        print("Sub: ", subdir)
+        readable_time = time.ctime(mt[1])
+        print(f"{mt[0]} - last modification time: {readable_time}")
 
     for k, v in timestamps.items():
         os.utime(k, (v, v))
@@ -72,7 +97,7 @@ def Rename_Folders():
             newName = (
                 subdir.rsplit("/", 1)[0]
                 + "/"
-                + data["localId"]
+                + data["name"]
                 .replace("\\", "/")
                 .replace("/", "_")
                 .replace('"', "_")
@@ -86,9 +111,10 @@ def Rename_Folders():
             )
 
             os.rename(subdir, newName)
+            print("Folder renamed at: " + subdir)
         except Exception as e:
             print("\n\nFolder rename failed at: ", subdir, "\nexception:", e)
-    print("Folders renamed. Done.")
+    print("Folders renamed.")
 
 
 def get_latest_mod_time(rootdir) -> tuple[str, int]:
@@ -110,6 +136,3 @@ def get_latest_mod_time(rootdir) -> tuple[str, int]:
 Sort_Blueprints()
 Rename_Folders()
 count_blueprints()
-
-# readable_time = time.ctime(mt[1])
-# print(f"{mt[0]} - last modification time: {readable_time}")
