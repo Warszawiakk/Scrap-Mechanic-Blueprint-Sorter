@@ -1,7 +1,7 @@
 Version Alpha 1.1 script, that helps you track all of your lift blueprints in scrap mechanic.
 It changes your blueprint folder modification date as well as your folder name. Basicly something that axolot should've done but didn't.
 
-!!! Warning, this version is very buggy and unstable (Althoe works flawlessly on first try) !!!
+!!! Warning !!! While using on original game folder, it might cause in-game duplicates to appear, althoe the game will be 100% functional and ~97% sorted.
 
 GUIDE:
 
