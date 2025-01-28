@@ -7,7 +7,7 @@ GUIDE:
 
 1. Download the sortowarka_scrap_mechanic.py file by clicking Code > download ZIP
 
-2. Unpack the zip in your prefered location
+2. Unpack the zip in your prefered location (it's the route to python file itself)
 
 3. enter terminal
 
