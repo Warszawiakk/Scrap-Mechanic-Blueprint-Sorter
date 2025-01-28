@@ -69,11 +69,6 @@ def count_blueprints():
     loops = 0
     for subdir in os.walk(rootdir):
         loops = loops + 1
-    print(
-        f"""
-    Total blueprints: {round((loops-1)/2)}
-    """
-    )
     blueprint_count = Label(window, text=f"Total blueprints: {round((loops - 1) / 2)}")
     blueprint_count.pack()
 
