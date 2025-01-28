@@ -9,12 +9,13 @@ import shutil
 from tkinter import *
 from tkinter import ttk
 
-# UI ================================================================================================================================ \/
+# \/ UI ================================================================================================================================ \/
 
 window = Tk()
 window.title("Scrap Mechanic Blueprint Sorter")
-window.geometry("900x250")
+window.geometry("900x500")
 window.tk.call("tk", "scaling", 2.0)
+window.iconbitmap("favicon.ico")
 
 entry_string = ""
 rootdir = ""
@@ -28,7 +29,7 @@ def display_text():
     print(f"Wprowadzono: {entry_string}")
 
 
-labelka = Label(window, text="", font=("Courier 5 bold"))
+labelka = Label(window, text="", font=("Helvetica 5 bold"))
 labelka.pack()
 
 tekst = Label(window, text="please enter full path to Blueprints folder: ")
@@ -40,33 +41,27 @@ entry.pack()
 
 
 def executeOrder66():
-    window.config(cursor="wait")
-    window.update()
+    display_text()
 
-    try:
-        display_text()
+    raw_rootdir = entry_string
+    unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
+    print(unchanged_rootdir)
+    global rootdir
+    rootdir = str(unchanged_rootdir.as_posix())
+    print(rootdir)
 
-        raw_rootdir = entry_string
-        unchanged_rootdir = pathlib.PureWindowsPath(raw_rootdir)
-        print(unchanged_rootdir)
-        global rootdir
-        rootdir = str(unchanged_rootdir.as_posix())
-        print(rootdir)
+    Sort_Blueprints()
+    Rename_Folders()
+    count_blueprints()
 
-        Sort_Blueprints()
-        Rename_Folders()
-        count_blueprints()
-
-        end_tekst = Label(window, text="Done!")
-        end_tekst.pack()
-    finally:
-        window.config(cursor="")
-        window.update()
+    end_tekst = Label(window, text="Done!")
+    end_tekst.pack()
 
 
 ttk.Button(window, text="Okay", width=20, command=executeOrder66).pack(pady=20)
 
-# UI ================================================================================================================================ /\
+
+# \/ UI ================================================================================================================================ /\
 
 timestamps: dict[str, float] = {}
 
@@ -74,8 +69,15 @@ end_of_sequence = False
 
 
 def count_blueprints():
-    folder_count = sum(1 for entry in os.scandir(rootdir) if entry.is_dir())
-    blueprint_count = Label(window, text=f"Total blueprints: {folder_count}")
+    loops = 0
+    for subdir in os.walk(rootdir):
+        loops = loops + 1
+    print(
+        f"""
+    Total blueprints: {round((loops-1)/2)}
+    """
+    )
+    blueprint_count = Label(window, text=f"Total blueprints: {round((loops - 1) / 2)}")
     blueprint_count.pack()
 
 
