@@ -20,3 +20,4 @@ GUIDE:
 Now you can easily lookup what are your latest creations by looking at directory modification date.
 
 ! This program may or may not work on Linux or Mac, althoe I haven't tested it yet. !
+! Blueprints may be duplicated due to steam cloud. !
