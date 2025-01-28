@@ -1,10 +1,7 @@
 import json
 import os
 import time
-from time import sleep
-from datetime import datetime
 import pathlib
-import shutil
 
 from tkinter import *
 from tkinter import ttk
