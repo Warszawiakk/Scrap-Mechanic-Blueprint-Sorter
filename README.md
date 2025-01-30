@@ -12,8 +12,10 @@ GUIDE:
 3. Double click scrap_mechanic_sorter.pyw
 
 4. While in program enter your Blueprints directory location (C:\Users\[Username]\AppData\Roaming\Axolot Games\Scrap Mechanic\User\User\_[number]\Blueprints)  <--- It needs to be a path from your computer and not this particular one. (In case of testing the program on test folder, enter test folder location)
+5. When 'Done' message displays it means you can now safely close the program.
 
 Now you can easily lookup what are your latest creations by looking at directory modification date.
 
 ! This program may or may not work on Linux or Mac, althoe I haven't tested it yet. !
 ! Blueprints may be duplicated due to steam cloud in your main Blueprints folder. !
+! If you close the program before it completing it's task it may interrupt sorting process and therefore break some of your blueprint folders (thay might be named funny) !
